@@ -59,8 +59,8 @@ Widget buildEvent() {
                 shape: BoxShape.circle,
                 color:
                     index == eventController.currentPage.value
-                        ? Colors.amber
-                        : Colors.grey,
+                        ? MyColor.kColorPrimary
+                        : MyColor.kColorBgAccent2,
               ),
             ),
           ),

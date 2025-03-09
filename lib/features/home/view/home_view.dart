@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               buildGreeting(),
               buildEvent(),
-              buildVoucherLoginButton(),
+              buildVoucherLoginButton(context),
               buildMenuGrid(),
               buildFavoriteOutlets(),
               ChartsWidget(),

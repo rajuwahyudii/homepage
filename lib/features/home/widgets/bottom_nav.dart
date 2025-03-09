@@ -9,7 +9,7 @@ Widget buildBottomNav() {
   return Container(
     decoration: BoxDecoration(color: MyColor.kColorBg),
     child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: GetBuilder<NavbarController>(
         builder: (navbarController) {
           return Row(
