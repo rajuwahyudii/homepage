@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homepage/constants/style/color.dart';
+import 'package:homepage/features/home/widgets/bottom_nav.dart';
 import 'package:homepage/features/home/widgets/charts.dart';
 import 'package:homepage/features/home/widgets/event.dart';
 import 'package:homepage/features/home/widgets/favorite_outlets.dart';
@@ -50,6 +51,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      bottomNavigationBar: buildBottomNav(),
     );
   }
 }
