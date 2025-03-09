@@ -9,7 +9,7 @@ class HomeServices {
   Future<SongsResponse> getChartFromAPI() async {
     try {
       final response = await dio.get('$baseUrl/songs/charts/latest');
-      return SongsResponse.fromJson(response.data);
+      return SongsResponse.fromJson(response.data['data']);
     } catch (e) {
       throw Exception('Failed to load posts: $e');
     }

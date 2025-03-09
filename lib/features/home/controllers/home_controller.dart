@@ -3,11 +3,11 @@ import 'package:homepage/features/home/data/home_services.dart';
 import 'package:homepage/features/home/models/song_response.dart';
 
 class HomeController extends GetxController {
-  final HomeServices _homeServices = Get.find<HomeServices>();
-
+  final HomeServices _homeServices = Get.put(HomeServices());
   RxBool isLoading = false.obs;
-  RxList<SongsResponse> songs = <SongsResponse>[].obs;
   RxString errorMessage = ''.obs;
+
+  Rx<SongsResponse> chartsong = SongsResponse().obs;
 
   @override
   void onInit() {
@@ -20,8 +20,7 @@ class HomeController extends GetxController {
     errorMessage.value = '';
     try {
       final response = await _homeServices.getChartFromAPI();
-      // posts.value = response.map((json) => Post.fromJson(json)).toList();
-      // posts.value = response;
+      chartsong.value = response;
     } catch (e) {
       errorMessage.value = e.toString();
     } finally {

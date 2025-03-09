@@ -1,4 +1,4 @@
-class SongModel {
+class Song {
   int? id;
   int? artistId;
   String? artistName;
@@ -7,7 +7,7 @@ class SongModel {
   String? spotifyUrl;
   String? appleMusicUrl;
 
-  SongModel({
+  Song({
     this.id,
     this.artistId,
     this.artistName,
@@ -17,14 +17,16 @@ class SongModel {
     this.appleMusicUrl,
   });
 
-  SongModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    artistId = json['artist_id'];
-    artistName = json['artist_name'];
-    artistProfilePicture = json['artist_profile_picture'];
-    title = json['title'];
-    spotifyUrl = json['spotify_url'];
-    appleMusicUrl = json['apple_music_url'];
+  factory Song.fromJson(Map<String, dynamic> json) {
+    return Song(
+      id: json['id'],
+      artistId: json['artist_id'],
+      artistName: json['artist_name'],
+      artistProfilePicture: json['artist_profile_picture'],
+      title: json['title'],
+      spotifyUrl: json['spotify_url'],
+      appleMusicUrl: json['apple_music_url'],
+    );
   }
 
   Map<String, dynamic> toJson() {

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:homepage/constants/style/color.dart';
 
@@ -42,11 +43,19 @@ Widget buildChartCard({
           height: 55,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            image: DecorationImage(
-              image: AssetImage('assets/images/ic_applemusic.png'),
-              fit: BoxFit.cover,
-            ),
+            image:
+                image != null
+                    ? DecorationImage(
+                      image: NetworkImage(image),
+                      fit: BoxFit.cover,
+                    )
+                    : null,
+            color: MyColor.kColorBgAccent2,
           ),
+          child:
+              image != null
+                  ? null
+                  : Icon(Icons.person, color: MyColor.kColorPrimary),
         ),
         SizedBox(width: 16),
         Expanded(
@@ -64,7 +73,7 @@ Widget buildChartCard({
               ),
               SizedBox(height: 2),
               Text(
-                artist!,
+                artist ?? '-',
                 style: TextStyle(fontSize: 14, color: MyColor.kColorBgAccent2),
               ),
             ],
