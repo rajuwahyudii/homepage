@@ -5,6 +5,8 @@ import 'package:homepage/constants/style/color.dart';
 import 'package:homepage/features/home/controllers/home_controller.dart';
 import 'package:homepage/features/home/models/chart_songs.dart';
 import 'package:homepage/features/home/widgets/chart_card.dart';
+import 'package:homepage/shared/widgets/atoms/error_message.dart';
+import 'package:homepage/shared/widgets/atoms/loading.dart';
 
 class ChartsWidget extends StatelessWidget {
   HomeController homeController = Get.put(HomeController());
@@ -38,28 +40,10 @@ class ChartsWidget extends StatelessWidget {
 
             Obx(() {
               if (homeController.isLoading.value) {
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      color: MyColor.kColorPrimary,
-                    ),
-                  ),
-                );
+                return buildLoading();
               } else if (homeController.chartsong.value.songs == null ||
                   homeController.chartsong.value.songs!.isEmpty) {
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Center(
-                    child: Text(
-                      "No chart data available.",
-                      style: TextStyle(
-                        color: MyColor.kColorPrimary,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                );
+                return buildErrorMessage("No chart data available.");
               }
               return ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
